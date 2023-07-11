@@ -10,7 +10,7 @@ const JSONtoWeatherDataObject = (data) => {
       tempF: data.current.temp_f,
       feelsLikeTempF: data.current.feelslike_f,
       tempC: data.current.temp_c,
-      feelsLikeTempF: data.current.feelslike_f,
+      feelsLikeTempC: data.current.feelslike_c,
     },
     wind: {
       windDir: data.current.wind_dir,
