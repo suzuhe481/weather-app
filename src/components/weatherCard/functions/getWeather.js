@@ -26,6 +26,7 @@ const JSONtoWeatherDataObject = (data) => {
   return weatherData;
 };
 
+// Calls the weather API for a given location.
 async function getWeather() {
   var location = "london";
   var url =
