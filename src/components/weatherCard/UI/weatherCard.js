@@ -1,76 +1,107 @@
 import getWeather from "../functions/getWeather";
 
 // Weather card element which contains weather data.
-const weatherCard = () => {
+const weatherCard = (weatherData, i) => {
   const card = document.createElement("div");
-  card.innerHTML = "Weather card";
 
-  getWeather()
-    .then((weatherData) => {
-      // Location
-      const name = document.createElement("div");
-      name.innerHTML = weatherData.currentDay.location.name;
-      card.appendChild(name);
+  // Adds appropriate class for a card for today's date or a future date.
+  if (i === 0) {
+    card.classList.add("weather-card", "current");
 
-      const region = document.createElement("div");
-      region.innerHTML = weatherData.currentDay.location.region;
-      card.appendChild(region);
+    // Location
+    const name = document.createElement("div");
+    name.innerHTML = weatherData.forecast[i].location.name;
+    card.appendChild(name);
 
-      const country = document.createElement("div");
-      country.innerHTML = weatherData.currentDay.location.country;
-      card.appendChild(country);
+    const region = document.createElement("div");
+    region.innerHTML = weatherData.forecast[i].location.region;
+    card.appendChild(region);
 
-      // Temperature
-      const tempF = document.createElement("div");
-      tempF.innerHTML = weatherData.currentDay.temp.tempF;
-      card.appendChild(tempF);
+    const country = document.createElement("div");
+    country.innerHTML = weatherData.forecast[i].location.country;
+    card.appendChild(country);
 
-      const feelsLikeTempF = document.createElement("div");
-      feelsLikeTempF.innerHTML = weatherData.currentDay.temp.feelsLikeTempF;
-      card.appendChild(feelsLikeTempF);
+    // Temperature
+    const tempF = document.createElement("div");
+    tempF.innerHTML = weatherData.forecast[i].temp.tempF;
+    card.appendChild(tempF);
 
-      const tempC = document.createElement("div");
-      tempC.innerHTML = weatherData.currentDay.temp.tempC;
-      card.appendChild(tempC);
+    const feelsLikeTempF = document.createElement("div");
+    feelsLikeTempF.innerHTML = weatherData.forecast[i].temp.feelsLikeTempF;
+    card.appendChild(feelsLikeTempF);
 
-      const feelsLikeTempC = document.createElement("div");
-      feelsLikeTempC.innerHTML = weatherData.currentDay.temp.feelsLikeTempC;
-      card.appendChild(feelsLikeTempC);
+    const tempC = document.createElement("div");
+    tempC.innerHTML = weatherData.forecast[i].temp.tempC;
+    card.appendChild(tempC);
 
-      // Wind
-      const windDir = document.createElement("div");
-      windDir.innerHTML = weatherData.currentDay.wind.windDir;
-      card.appendChild(windDir);
+    const feelsLikeTempC = document.createElement("div");
+    feelsLikeTempC.innerHTML = weatherData.forecast[i].temp.feelsLikeTempC;
+    card.appendChild(feelsLikeTempC);
 
-      const windKph = document.createElement("div");
-      windKph.innerHTML = weatherData.currentDay.wind.windKph;
-      card.appendChild(windKph);
+    // Wind
+    const windDir = document.createElement("div");
+    windDir.innerHTML = weatherData.forecast[i].wind.windDir;
+    card.appendChild(windDir);
 
-      const windMph = document.createElement("div");
-      windMph.innerHTML = weatherData.currentDay.wind.windMph;
-      card.appendChild(windMph);
+    const windKph = document.createElement("div");
+    windKph.innerHTML = weatherData.forecast[i].wind.windKph;
+    card.appendChild(windKph);
 
-      // Condition
-      const condition = document.createElement("div");
-      condition.innerHTML = weatherData.currentDay.condition.condition;
-      card.appendChild(condition);
+    const windMph = document.createElement("div");
+    windMph.innerHTML = weatherData.forecast[i].wind.windMph;
+    card.appendChild(windMph);
 
-      const conditionIcon = document.createElement("img");
-      conditionIcon.src = weatherData.currentDay.condition.conditionIcon;
-      card.appendChild(conditionIcon);
+    // Condition
+    const condition = document.createElement("div");
+    condition.innerHTML = weatherData.forecast[i].condition.condition;
+    card.appendChild(condition);
 
-      // Last Updated
-      const lastUpdated = document.createElement("div");
-      lastUpdated.innerHTML = weatherData.currentDay.lastUpdated;
-      card.appendChild(lastUpdated);
-    })
-    .catch((error) => {
-      console.log(error);
+    const conditionIcon = document.createElement("img");
+    conditionIcon.src = weatherData.forecast[i].condition.conditionIcon;
+    card.appendChild(conditionIcon);
 
-      const errorMessage = document.createElement("div");
-      errorMessage.innerHTML = "Weather data could not be displayed.";
-      card.appendChild(errorMessage);
-    });
+    // Last Updated
+    const lastUpdated = document.createElement("div");
+    lastUpdated.innerHTML = weatherData.forecast[i].lastUpdated;
+    card.appendChild(lastUpdated);
+  } else {
+    card.classList.add("weather-card", "future");
+
+    // Temperature
+    const maxtempF = document.createElement("div");
+    maxtempF.innerHTML = weatherData.forecast[i].temp.maxtempF;
+    card.appendChild(maxtempF);
+
+    const mintempF = document.createElement("div");
+    mintempF.innerHTML = weatherData.forecast[i].temp.mintempF;
+    card.appendChild(mintempF);
+
+    const maxtempC = document.createElement("div");
+    maxtempC.innerHTML = weatherData.forecast[i].temp.maxtempC;
+    card.appendChild(maxtempC);
+
+    const mintempC = document.createElement("div");
+    mintempC.innerHTML = weatherData.forecast[i].temp.mintempC;
+    card.appendChild(mintempC);
+
+    // Wind
+    const maxWindMph = document.createElement("div");
+    maxWindMph.innerHTML = weatherData.forecast[i].wind.maxWindMph;
+    card.appendChild(maxWindMph);
+
+    const maxWindKph = document.createElement("div");
+    maxWindKph.innerHTML = weatherData.forecast[i].wind.maxWindKph;
+    card.appendChild(maxWindKph);
+
+    // Condition
+    const condition = document.createElement("div");
+    condition.innerHTML = weatherData.forecast[i].condition.condition;
+    card.appendChild(condition);
+
+    const conditionIcon = document.createElement("img");
+    conditionIcon.src = weatherData.forecast[i].condition.conditionIcon;
+    card.appendChild(conditionIcon);
+  }
 
   return card;
 };
