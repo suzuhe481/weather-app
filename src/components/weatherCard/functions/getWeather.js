@@ -1,28 +1,56 @@
 // Stores weather data from JSON into an object.
 const JSONtoWeatherDataObject = (data) => {
   let weatherData = {
-    location: {
-      name: data.location.name,
-      region: data.location.region,
-      country: data.location.country,
+    currentDay: {
+      date: data.location.localtime,
+      location: {
+        name: data.location.name,
+        region: data.location.region,
+        country: data.location.country,
+      },
+      temp: {
+        tempF: data.current.temp_f,
+        feelsLikeTempF: data.current.feelslike_f,
+        tempC: data.current.temp_c,
+        feelsLikeTempC: data.current.feelslike_c,
+      },
+      wind: {
+        windDir: data.current.wind_dir,
+        windMph: data.current.wind_mph,
+        windKph: data.current.wind_kph,
+      },
+      condition: {
+        condition: data.current.condition.text,
+        conditionIcon: data.current.condition.icon,
+      },
+      lastUpdated: data.current.last_updated,
     },
-    temp: {
-      tempF: data.current.temp_f,
-      feelsLikeTempF: data.current.feelslike_f,
-      tempC: data.current.temp_c,
-      feelsLikeTempC: data.current.feelslike_c,
-    },
-    wind: {
-      windDir: data.current.wind_dir,
-      windMph: data.current.wind_mph,
-      windKph: data.current.wind_kph,
-    },
-    condition: {
-      condition: data.current.condition.text,
-      conditionIcon: data.current.condition.icon,
-    },
-    lastUpdated: data.current.last_updated,
+    forecast: [],
   };
+
+  // Iterating starts at the next day.
+  const numOfDays = 3;
+  for (var i = 1; i < numOfDays; i++) {
+    let forecastDay = {
+      date: data.forecast.forecastday[i].date,
+      temp: {
+        maxtempF: data.forecast.forecastday[i].day.maxtemp_f,
+        mintempF: data.forecast.forecastday[i].day.mintemp_f,
+        maxtempC: data.forecast.forecastday[i].day.maxtemp_c,
+        mintempC: data.forecast.forecastday[i].day.mintemp_c,
+      },
+      wind: {
+        maxWindMph: data.forecast.forecastday[i].day.maxwind_mph,
+        maxWindKph: data.forecast.forecastday[i].day.maxwind_kph,
+      },
+      condition: {
+        condition: data.forecast.forecastday[i].day.condition.text,
+        conditionIcon: data.forecast.forecastday[i].day.condition.icon,
+      },
+    };
+
+    weatherData.forecast.push(forecastDay);
+  }
 
   return weatherData;
 };
@@ -33,10 +61,12 @@ async function getWeather() {
 
   var userLocation = inputElement.value;
 
+  const numOfDays = 3;
   var url =
-    "http://api.weatherapi.com/v1/current.json?key=7e3d3ae60f4f42fcb51173916230907";
+    "http://api.weatherapi.com/v1/forecast.json?key=7e3d3ae60f4f42fcb51173916230907";
 
-  const fetchUrl = url + "&q=" + userLocation + "&aqi=yes";
+  const fetchUrl =
+    url + "&q=" + userLocation + "&days=" + numOfDays + "&aqi=yes&alerts=no";
 
   try {
     var response = await fetch(fetchUrl, { mode: "cors" });
