@@ -16,7 +16,7 @@ const weatherForm = () => {
 
   const submitButton = document.createElement("button");
   submitButton.id = "location-submit";
-  submitButton.innerHTML = "Submit";
+  submitButton.innerHTML = "Search";
   submitButton.onclick = updateWeatherCards;
 
   formRow.appendChild(locationInput);
