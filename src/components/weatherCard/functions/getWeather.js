@@ -28,11 +28,14 @@ const JSONtoWeatherDataObject = (data) => {
 
 // Calls the weather API for a given location.
 async function getWeather() {
-  var location = "london";
+  const inputElement = document.getElementById("location-input");
+
+  var userLocation = inputElement.value;
+
   var url =
     "http://api.weatherapi.com/v1/current.json?key=7e3d3ae60f4f42fcb51173916230907";
 
-  const fetchUrl = url + "&q=" + location + "&aqi=yes";
+  const fetchUrl = url + "&q=" + userLocation + "&aqi=yes";
 
   try {
     var response = await fetch(fetchUrl, { mode: "cors" });
@@ -49,6 +52,7 @@ async function getWeather() {
     return weatherData;
   } catch (error) {
     console.log("Error: ", error);
+    return error;
   }
 }
 
