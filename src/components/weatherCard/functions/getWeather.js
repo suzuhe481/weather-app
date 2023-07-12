@@ -1,34 +1,39 @@
 // Stores weather data from JSON into an object.
 const JSONtoWeatherDataObject = (data) => {
   let weatherData = {
-    currentDay: {
-      date: data.location.localtime,
-      location: {
-        name: data.location.name,
-        region: data.location.region,
-        country: data.location.country,
-      },
-      temp: {
-        tempF: data.current.temp_f,
-        feelsLikeTempF: data.current.feelslike_f,
-        tempC: data.current.temp_c,
-        feelsLikeTempC: data.current.feelslike_c,
-      },
-      wind: {
-        windDir: data.current.wind_dir,
-        windMph: data.current.wind_mph,
-        windKph: data.current.wind_kph,
-      },
-      condition: {
-        condition: data.current.condition.text,
-        conditionIcon: data.current.condition.icon,
-      },
-      lastUpdated: data.current.last_updated,
-    },
     forecast: [],
   };
 
+  // Object containing weather for current day.
+  var currentDay = {
+    date: data.location.localtime,
+    location: {
+      name: data.location.name,
+      region: data.location.region,
+      country: data.location.country,
+    },
+    temp: {
+      tempF: data.current.temp_f,
+      feelsLikeTempF: data.current.feelslike_f,
+      tempC: data.current.temp_c,
+      feelsLikeTempC: data.current.feelslike_c,
+    },
+    wind: {
+      windDir: data.current.wind_dir,
+      windMph: data.current.wind_mph,
+      windKph: data.current.wind_kph,
+    },
+    condition: {
+      condition: data.current.condition.text,
+      conditionIcon: data.current.condition.icon,
+    },
+    lastUpdated: data.current.last_updated,
+  };
+
+  weatherData.forecast.push(currentDay);
+
   // Iterating starts at the next day.
+  // Creates objects for future days.
   const numOfDays = 3;
   for (var i = 1; i < numOfDays; i++) {
     let forecastDay = {
