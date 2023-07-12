@@ -4,9 +4,8 @@ import "./weatherForm.css";
 
 // Outputs a form that collects a location from the user.
 const weatherForm = () => {
-  const formContainer = document.createElement("div");
-
   const weatherForm = document.createElement("form");
+  weatherForm.id = "weather-form";
 
   const formRow = document.createElement("div");
   formRow.classList.add("form-row");
@@ -25,9 +24,7 @@ const weatherForm = () => {
 
   weatherForm.appendChild(formRow);
 
-  formContainer.appendChild(weatherForm);
-
-  return formContainer;
+  return weatherForm;
 };
 
 export default weatherForm;
