@@ -19,6 +19,7 @@ const JSONtoWeatherDataObject = (data) => {
     },
     condition: {
       condition: data.current.condition.text,
+      conditionIcon: data.current.condition.icon,
     },
     lastUpdated: data.current.last_updated,
   };
