@@ -55,6 +55,10 @@ const weatherCard = () => {
       condition.innerHTML = weatherData.condition.condition;
       card.appendChild(condition);
 
+      const conditionIcon = document.createElement("img");
+      conditionIcon.src = weatherData.condition.conditionIcon;
+      card.appendChild(conditionIcon);
+
       // Last Updated
       const lastUpdated = document.createElement("div");
       lastUpdated.innerHTML = weatherData.lastUpdated;
