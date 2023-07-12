@@ -8,6 +8,9 @@ const weatherForm = () => {
 
   const weatherForm = document.createElement("form");
 
+  const formRow = document.createElement("div");
+  formRow.classList.add("form-row");
+
   const locationInput = document.createElement("input");
   locationInput.id = "location-input";
   locationInput.placeholder = "Location...";
@@ -17,8 +20,10 @@ const weatherForm = () => {
   submitButton.innerHTML = "Submit";
   submitButton.onclick = updateWeatherCards;
 
-  weatherForm.appendChild(locationInput);
-  weatherForm.appendChild(submitButton);
+  formRow.appendChild(locationInput);
+  formRow.appendChild(submitButton);
+
+  weatherForm.appendChild(formRow);
 
   formContainer.appendChild(weatherForm);
 
