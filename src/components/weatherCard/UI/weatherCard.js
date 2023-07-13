@@ -1,5 +1,6 @@
 import getWeather from "../functions/getWeather";
 import weatherLocation from "./weatherLocation";
+import weatherTemperature from "./weatherTemperature";
 
 // Weather card element which contains weather data.
 const weatherCard = (weatherData, i) => {
@@ -18,21 +19,12 @@ const weatherCard = (weatherData, i) => {
     card.appendChild(weatherLocationContainer);
 
     // Temperature
-    const tempF = document.createElement("div");
-    tempF.innerHTML = weatherData.forecast[i].temp.tempF;
-    card.appendChild(tempF);
-
-    const feelsLikeTempF = document.createElement("div");
-    feelsLikeTempF.innerHTML = weatherData.forecast[i].temp.feelsLikeTempF;
-    card.appendChild(feelsLikeTempF);
-
-    const tempC = document.createElement("div");
-    tempC.innerHTML = weatherData.forecast[i].temp.tempC;
-    card.appendChild(tempC);
-
-    const feelsLikeTempC = document.createElement("div");
-    feelsLikeTempC.innerHTML = weatherData.forecast[i].temp.feelsLikeTempC;
-    card.appendChild(feelsLikeTempC);
+    const weatherTempContainer = document.createElement("div");
+    weatherTempContainer.id = "weather-temp-container";
+    weatherTempContainer.appendChild(
+      weatherTemperature(weatherData.forecast[i].temp, i)
+    );
+    card.appendChild(weatherTempContainer);
 
     // Wind
     const windDir = document.createElement("div");
@@ -64,21 +56,12 @@ const weatherCard = (weatherData, i) => {
     card.classList.add("weather-card", "future");
 
     // Temperature
-    const maxtempF = document.createElement("div");
-    maxtempF.innerHTML = weatherData.forecast[i].temp.maxtempF;
-    card.appendChild(maxtempF);
-
-    const mintempF = document.createElement("div");
-    mintempF.innerHTML = weatherData.forecast[i].temp.mintempF;
-    card.appendChild(mintempF);
-
-    const maxtempC = document.createElement("div");
-    maxtempC.innerHTML = weatherData.forecast[i].temp.maxtempC;
-    card.appendChild(maxtempC);
-
-    const mintempC = document.createElement("div");
-    mintempC.innerHTML = weatherData.forecast[i].temp.mintempC;
-    card.appendChild(mintempC);
+    const weatherTempContainer = document.createElement("div");
+    weatherTempContainer.id = "weather-temp-container";
+    weatherTempContainer.appendChild(
+      weatherTemperature(weatherData.forecast[i].temp, i)
+    );
+    card.appendChild(weatherTempContainer);
 
     // Wind
     const maxWindMph = document.createElement("div");
