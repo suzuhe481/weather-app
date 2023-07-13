@@ -17,6 +17,11 @@ const weatherLocation = (location) => {
   country.innerHTML = location.country;
   weatherLocation.appendChild(country);
 
+  const lastUpdated = document.createElement("div");
+  lastUpdated.classList.add("weather-location-lastUpdates");
+  lastUpdated.innerHTML = location.lastUpdated;
+  weatherLocation.appendChild(lastUpdated);
+
   return weatherLocation;
 };
 
