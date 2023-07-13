@@ -29,6 +29,7 @@ const currForecast = (wind) => {
 
   return weatherWind;
 };
+
 // Creates container for wind data.
 // Index used to determine if wind data is for today's forecast or a future one.
 const weatherWind = (wind, index) => {
