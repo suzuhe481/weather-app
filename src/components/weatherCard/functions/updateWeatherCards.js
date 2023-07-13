@@ -1,4 +1,3 @@
-import weatherForm from "../../weatherForm/UI/weatherForm";
 import weatherCard from "../UI/weatherCard";
 import getWeather from "./getWeather";
 import weatherLocation from "../UI/weatherLocation";
