@@ -1,6 +1,7 @@
 import weatherForm from "../../weatherForm/UI/weatherForm";
 import weatherCard from "../UI/weatherCard";
 import getWeather from "./getWeather";
+import weatherLocation from "../UI/weatherLocation";
 
 const updateWeatherCards = (event) => {
   event.preventDefault();
@@ -12,8 +13,19 @@ const updateWeatherCards = (event) => {
   );
   weatherCardsContainer.innerHTML = "";
 
+  const weatherLocationContainer = document.getElementById(
+    "weather-location-container"
+  );
+  weatherLocationContainer.innerHTML = "";
+
   getWeather()
     .then((weatherData) => {
+      console.log(weatherData);
+      // Updates the weather location
+      weatherLocationContainer.appendChild(
+        weatherLocation(weatherData.location)
+      );
+
       // Creates cards for each forecast day.
       // Index is passed to know which is the current day, at i == 0.
       for (var i = 0; i < weatherData.forecast.length; i++) {
