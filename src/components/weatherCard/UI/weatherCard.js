@@ -40,11 +40,6 @@ const weatherCard = (weatherData, i) => {
   );
   card.appendChild(weatherConditionContainer);
 
-  // Last Updated
-  const lastUpdated = document.createElement("div");
-  lastUpdated.innerHTML = weatherData.forecast[i].lastUpdated;
-  card.appendChild(lastUpdated);
-
   return card;
 };
 
