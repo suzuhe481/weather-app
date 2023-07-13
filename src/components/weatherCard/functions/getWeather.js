@@ -5,6 +5,7 @@ const JSONtoWeatherDataObject = (data) => {
       name: data.location.name,
       region: data.location.region,
       country: data.location.country,
+      lastUpdated: data.current.last_updated,
     },
     forecast: [],
   };
@@ -28,7 +29,6 @@ const JSONtoWeatherDataObject = (data) => {
       condition: data.current.condition.text,
       conditionIcon: data.current.condition.icon,
     },
-    lastUpdated: data.current.last_updated,
   };
 
   weatherData.forecast.push(currentDay);
