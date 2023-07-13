@@ -31,7 +31,7 @@ const weatherCard = (weatherData, i) => {
     const weatherWindContainer = document.createElement("div");
     weatherWindContainer.id = "weather-wind-container";
     weatherWindContainer.appendChild(
-      weatherTemperature(weatherData.forecast[i].temp, i)
+      weatherWind(weatherData.forecast[i].wind, i)
     );
     card.appendChild(weatherWindContainer);
 
