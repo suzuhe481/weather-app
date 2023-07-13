@@ -1,5 +1,3 @@
-import getWeather from "../functions/getWeather";
-
 // import weatherLocation from "./weatherLocation";
 import weatherTemperature from "./weatherTemperature";
 import weatherWind from "./weatherWind";
