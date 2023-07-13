@@ -1,6 +1,7 @@
 import getWeather from "../functions/getWeather";
 import weatherLocation from "./weatherLocation";
 import weatherTemperature from "./weatherTemperature";
+import weatherWind from "./weatherWind";
 
 // Weather card element which contains weather data.
 const weatherCard = (weatherData, i) => {
@@ -27,17 +28,12 @@ const weatherCard = (weatherData, i) => {
     card.appendChild(weatherTempContainer);
 
     // Wind
-    const windDir = document.createElement("div");
-    windDir.innerHTML = weatherData.forecast[i].wind.windDir;
-    card.appendChild(windDir);
-
-    const windKph = document.createElement("div");
-    windKph.innerHTML = weatherData.forecast[i].wind.windKph;
-    card.appendChild(windKph);
-
-    const windMph = document.createElement("div");
-    windMph.innerHTML = weatherData.forecast[i].wind.windMph;
-    card.appendChild(windMph);
+    const weatherWindContainer = document.createElement("div");
+    weatherWindContainer.id = "weather-temp-container";
+    weatherWindContainer.appendChild(
+      weatherTemperature(weatherData.forecast[i].temp, i)
+    );
+    card.appendChild(weatherWindContainer);
 
     // Condition
     const condition = document.createElement("div");
@@ -64,13 +60,12 @@ const weatherCard = (weatherData, i) => {
     card.appendChild(weatherTempContainer);
 
     // Wind
-    const maxWindMph = document.createElement("div");
-    maxWindMph.innerHTML = weatherData.forecast[i].wind.maxWindMph;
-    card.appendChild(maxWindMph);
-
-    const maxWindKph = document.createElement("div");
-    maxWindKph.innerHTML = weatherData.forecast[i].wind.maxWindKph;
-    card.appendChild(maxWindKph);
+    const weatherWindContainer = document.createElement("div");
+    weatherWindContainer.id = "weather-temp-container";
+    weatherWindContainer.appendChild(
+      weatherTemperature(weatherData.forecast[i].temp, i)
+    );
+    card.appendChild(weatherWindContainer);
 
     // Condition
     const condition = document.createElement("div");
