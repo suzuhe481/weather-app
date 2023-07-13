@@ -8,6 +8,10 @@ document.body.appendChild(weatherFormContainer);
 
 weatherFormContainer.appendChild(weatherForm());
 
+const weatherLocationContainer = document.createElement("div");
+weatherLocationContainer.id = "weather-location-container";
+document.body.appendChild(weatherLocationContainer);
+
 const weatherCardsContainer = document.createElement("div");
 weatherCardsContainer.id = "weather-cards-container";
 document.body.appendChild(weatherCardsContainer);
