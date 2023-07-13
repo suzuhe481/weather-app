@@ -1,17 +1,18 @@
 // Stores weather data from JSON into an object.
 const JSONtoWeatherDataObject = (data) => {
   let weatherData = {
+    location: {
+      name: data.location.name,
+      region: data.location.region,
+      country: data.location.country,
+    },
     forecast: [],
   };
 
   // Object containing weather for current day.
   var currentDay = {
     date: data.location.localtime,
-    location: {
-      name: data.location.name,
-      region: data.location.region,
-      country: data.location.country,
-    },
+
     temp: {
       tempF: data.current.temp_f,
       feelsLikeTempF: data.current.feelslike_f,
@@ -63,8 +64,8 @@ const JSONtoWeatherDataObject = (data) => {
 // Calls the weather API for a given location.
 async function getWeather() {
   const inputElement = document.getElementById("location-input");
-
   var userLocation = inputElement.value;
+  inputElement.value = "";
 
   const numOfDays = 3;
   var url =
