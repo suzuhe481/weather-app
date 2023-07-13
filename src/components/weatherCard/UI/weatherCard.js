@@ -1,4 +1,5 @@
 import getWeather from "../functions/getWeather";
+import weatherLocation from "./weatherLocation";
 
 // Weather card element which contains weather data.
 const weatherCard = (weatherData, i) => {
@@ -9,17 +10,12 @@ const weatherCard = (weatherData, i) => {
     card.classList.add("weather-card", "current");
 
     // Location
-    const name = document.createElement("div");
-    name.innerHTML = weatherData.forecast[i].location.name;
-    card.appendChild(name);
-
-    const region = document.createElement("div");
-    region.innerHTML = weatherData.forecast[i].location.region;
-    card.appendChild(region);
-
-    const country = document.createElement("div");
-    country.innerHTML = weatherData.forecast[i].location.country;
-    card.appendChild(country);
+    const weatherLocationContainer = document.createElement("div");
+    weatherLocationContainer.id = "weather-location-container";
+    weatherLocationContainer.appendChild(
+      weatherLocation(weatherData.forecast[i].location)
+    );
+    card.appendChild(weatherLocationContainer);
 
     // Temperature
     const tempF = document.createElement("div");
