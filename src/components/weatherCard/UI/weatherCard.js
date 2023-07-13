@@ -29,7 +29,7 @@ const weatherCard = (weatherData, i) => {
 
     // Wind
     const weatherWindContainer = document.createElement("div");
-    weatherWindContainer.id = "weather-temp-container";
+    weatherWindContainer.id = "weather-wind-container";
     weatherWindContainer.appendChild(
       weatherTemperature(weatherData.forecast[i].temp, i)
     );
@@ -61,7 +61,7 @@ const weatherCard = (weatherData, i) => {
 
     // Wind
     const weatherWindContainer = document.createElement("div");
-    weatherWindContainer.id = "weather-temp-container";
+    weatherWindContainer.id = "weather-wind-container";
     weatherWindContainer.appendChild(
       weatherTemperature(weatherData.forecast[i].temp, i)
     );
