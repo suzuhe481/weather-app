@@ -1,7 +1,9 @@
 import getWeather from "../functions/getWeather";
+
 import weatherLocation from "./weatherLocation";
 import weatherTemperature from "./weatherTemperature";
 import weatherWind from "./weatherWind";
+import weatherCondition from "./weatherCondition";
 
 // Weather card element which contains weather data.
 const weatherCard = (weatherData, i) => {
@@ -36,13 +38,12 @@ const weatherCard = (weatherData, i) => {
     card.appendChild(weatherWindContainer);
 
     // Condition
-    const condition = document.createElement("div");
-    condition.innerHTML = weatherData.forecast[i].condition.condition;
-    card.appendChild(condition);
-
-    const conditionIcon = document.createElement("img");
-    conditionIcon.src = weatherData.forecast[i].condition.conditionIcon;
-    card.appendChild(conditionIcon);
+    const weatherConditionContainer = document.createElement("div");
+    weatherConditionContainer.id = "weather-condition-container";
+    weatherConditionContainer.appendChild(
+      weatherCondition(weatherData.forecast[i].condition, i)
+    );
+    card.appendChild(weatherConditionContainer);
 
     // Last Updated
     const lastUpdated = document.createElement("div");
@@ -68,13 +69,12 @@ const weatherCard = (weatherData, i) => {
     card.appendChild(weatherWindContainer);
 
     // Condition
-    const condition = document.createElement("div");
-    condition.innerHTML = weatherData.forecast[i].condition.condition;
-    card.appendChild(condition);
-
-    const conditionIcon = document.createElement("img");
-    conditionIcon.src = weatherData.forecast[i].condition.conditionIcon;
-    card.appendChild(conditionIcon);
+    const weatherConditionContainer = document.createElement("div");
+    weatherConditionContainer.id = "weather-condition-container";
+    weatherConditionContainer.appendChild(
+      weatherCondition(weatherData.forecast[i].condition, i)
+    );
+    card.appendChild(weatherConditionContainer);
   }
 
   return card;
