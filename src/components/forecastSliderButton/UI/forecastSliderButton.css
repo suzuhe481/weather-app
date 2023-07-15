@@ -1,0 +1,113 @@
+/* Variables */
+.toggle {
+  --toggle-width: 350px;
+  --toggle-height: 40px;
+  --slider-color: yellow;
+  --slider-off-background: grey;
+  --slider-length: 120px;
+}
+
+/* Creates the rounded slider container */
+.toggle {
+  position: relative;
+  display: inline-block;
+
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  border-radius: var(--toggle-height);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+
+  cursor: pointer;
+}
+
+/* Hides the checkbox */
+.toggle input {
+  display: none;
+}
+
+/* Entire Slider */
+.toggle .slider {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: var(--toggle-height);
+
+  background-color: var(--slider-off-background);
+}
+
+/* The default position of the slider button inside slider */
+.toggle .slider::before {
+  content: ""; /* Slider button will dissappear without this */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: var(--slider-length);
+  height: var(--toggle-height);
+
+  border-radius: calc(var(--toggle-height) / 2);
+
+  background-color: var(--slider-color); /* Slider button color */
+}
+
+/* Smoothes the sliding animation */
+.toggle .slider,
+.toggle .slider::before {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Moves the toggle switch the appropraite distance. */
+/* The entire width of the slider - slider */
+.toggle input:checked + .slider::before {
+  transform: translateX(calc(var(--toggle-width) - var(--slider-length)));
+  -webkit-transform: translateX(
+    calc(var(--toggle-width) - var(--slider-length))
+  );
+}
+
+.toggle .labels {
+  position: absolute;
+
+  top: calc(
+    var(--toggle-height) / 3
+  ); /* Roughly centers the text in the toggle switch */
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  font-size: 12px;
+  font-family: sans-serif;
+
+  transition: all 0.4s ease-in-out;
+}
+
+/* Text label for default OFF position */
+.toggle .labels::after {
+  content: attr(data-off);
+
+  position: absolute;
+
+  right: 5px;
+  color: #4d4d4d;
+
+  transition: all 0.4s ease-in-out;
+}
+
+/* Text label for ON position */
+.toggle .labels::before {
+  content: attr(data-on);
+
+  position: absolute;
+
+  left: 5px;
+  color: #4d4d4d;
+
+  transition: all 0.4s ease-in-out;
+}
