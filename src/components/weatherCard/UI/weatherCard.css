@@ -35,3 +35,13 @@
 .weather-condition-icon {
   width: 100px;
 }
+
+/* On current forecast toggle, only displays weathercard for current day */
+#weather-cards-container.current-forecast > div:not(:first-child) {
+  display: none;
+}
+
+/* On 3 day forecast toggle, displays all weather cards */
+#weather-cards-container.three-day-forecast > div {
+  display: block;
+}
