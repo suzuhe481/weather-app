@@ -3,6 +3,8 @@ import weatherTemperature from "./weatherTemperature";
 import weatherWind from "./weatherWind";
 import weatherCondition from "./weatherCondition";
 
+import "./weatherCard.css";
+
 // Weather card element which contains weather data.
 const weatherCard = (weatherData, i) => {
   const card = document.createElement("div");

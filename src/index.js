@@ -1,6 +1,7 @@
 import weatherForm from "./components/weatherForm/UI/weatherForm";
 
 import "./reset.css";
+import "./style.css";
 
 const weatherFormContainer = document.createElement("div");
 weatherFormContainer.id = "weather-form-container";
