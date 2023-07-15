@@ -1,6 +1,7 @@
 import weatherCard from "../UI/weatherCard";
 import getWeather from "./getWeather";
 import weatherLocation from "../UI/weatherLocation";
+import forecastSliderButton from "../../forecastSliderButton/UI/forecastSliderButton";
 
 const updateWeatherCards = (event) => {
   event.preventDefault();
@@ -17,6 +18,11 @@ const updateWeatherCards = (event) => {
   );
   weatherLocationContainer.innerHTML = "";
 
+  const forecastTypeSliderContainer = document.getElementById(
+    "forecast-slider-container"
+  );
+  forecastTypeSliderContainer.innerHTML = "";
+
   getWeather()
     .then((weatherData) => {
       console.log(weatherData);
@@ -24,6 +30,9 @@ const updateWeatherCards = (event) => {
       weatherLocationContainer.appendChild(
         weatherLocation(weatherData.location)
       );
+
+      // Adds the slider button.
+      forecastTypeSliderContainer.appendChild(forecastSliderButton());
 
       // Creates cards for each forecast day.
       // Index is passed to know which is the current day, at i == 0.
