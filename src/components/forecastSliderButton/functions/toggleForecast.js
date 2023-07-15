@@ -11,8 +11,6 @@ const toggleForecast = () => {
   // Weather card hiding is done via CSS in weatherCard.css.
   weatherCardsContainer.classList.toggle(threeDayForecast);
   weatherCardsContainer.classList.toggle(currentForecast);
-
-  console.log(weatherCardsContainer.classList);
 };
 
 export default toggleForecast;
