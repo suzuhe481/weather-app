@@ -1,13 +1,25 @@
 const futureForecast = (wind) => {
   const weatherWind = document.createElement("div");
 
+  // Max wind - mph
+  const windGroupMph = document.createElement("div");
+  windGroupMph.classList.add("wind-mph");
+
   const maxWindMph = document.createElement("div");
-  maxWindMph.innerHTML = wind.maxWindMph;
-  weatherWind.appendChild(maxWindMph);
+  maxWindMph.innerHTML = "Max wind: " + wind.maxWindMph + " mph";
+
+  windGroupMph.appendChild(maxWindMph);
+  weatherWind.appendChild(windGroupMph);
+
+  // Max wind - kph
+  const windGroupKph = document.createElement("div");
+  windGroupKph.classList.add("wind-mph");
 
   const maxWindKph = document.createElement("div");
-  maxWindKph.innerHTML = wind.maxWindKph;
-  weatherWind.appendChild(maxWindKph);
+  maxWindKph.innerHTML = "Max wind: " + wind.maxWindKph + " kph";
+
+  windGroupKph.appendChild(maxWindKph);
+  weatherWind.appendChild(windGroupKph);
 
   return weatherWind;
 };
@@ -15,17 +27,30 @@ const futureForecast = (wind) => {
 const currForecast = (wind) => {
   const weatherWind = document.createElement("div");
 
+  // Wind direction
   const windDir = document.createElement("div");
-  windDir.innerHTML = wind.windDir;
+  windDir.innerHTML = "Direction: " + wind.windDir;
   weatherWind.appendChild(windDir);
 
-  const windKph = document.createElement("div");
-  windKph.innerHTML = wind.windKph;
-  weatherWind.appendChild(windKph);
+  // Wind - mph
+  const windGroupMph = document.createElement("div");
+  windGroupMph.classList.add("wind-mph");
 
   const windMph = document.createElement("div");
-  windMph.innerHTML = wind.windMph;
-  weatherWind.appendChild(windMph);
+  windMph.innerHTML = "Wind: " + wind.windMph + " mph";
+
+  windGroupMph.appendChild(windMph);
+  weatherWind.appendChild(windGroupMph);
+
+  // Wind - kph
+  const windGroupKph = document.createElement("div");
+  windGroupKph.classList.add("wind-kph");
+
+  const windKph = document.createElement("div");
+  windKph.innerHTML = "Wind: " + wind.windKph + " kph";
+
+  windGroupKph.appendChild(windKph);
+  weatherWind.appendChild(windGroupKph);
 
   return weatherWind;
 };

@@ -1,3 +1,5 @@
+import "./weatherLocation.css";
+
 // Creates div containing the location data.
 const weatherLocation = (location) => {
   const weatherLocation = document.createElement("div");
@@ -18,8 +20,8 @@ const weatherLocation = (location) => {
   weatherLocation.appendChild(country);
 
   const lastUpdated = document.createElement("div");
-  lastUpdated.classList.add("weather-location-lastUpdates");
-  lastUpdated.innerHTML = location.lastUpdated;
+  lastUpdated.classList.add("weather-location-lastUpdated");
+  lastUpdated.innerHTML = "Last Updated: " + location.lastUpdated;
   weatherLocation.appendChild(lastUpdated);
 
   return weatherLocation;

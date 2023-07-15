@@ -1,13 +1,20 @@
 const futureForecast = (condition) => {
   const weatherCondition = document.createElement("div");
 
+  const conditionGroup = document.createElement("div");
+  conditionGroup.classList.add("weather-condition");
+
   const cond = document.createElement("div");
+  cond.classList.add("weather-condition-text");
   cond.innerHTML = condition.condition;
-  weatherCondition.appendChild(cond);
+  conditionGroup.appendChild(cond);
 
   const conditionIcon = document.createElement("img");
+  conditionIcon.classList.add("weather-condition-icon");
   conditionIcon.src = condition.conditionIcon;
-  weatherCondition.appendChild(conditionIcon);
+  conditionGroup.appendChild(conditionIcon);
+
+  weatherCondition.appendChild(conditionGroup);
 
   return weatherCondition;
 };
@@ -15,13 +22,20 @@ const futureForecast = (condition) => {
 const currForecast = (condition) => {
   const weatherCondition = document.createElement("div");
 
+  const conditionGroup = document.createElement("div");
+  conditionGroup.classList.add("weather-condition");
+
   const cond = document.createElement("div");
+  cond.classList.add("weather-condition-text");
   cond.innerHTML = condition.condition;
-  weatherCondition.appendChild(cond);
+  conditionGroup.appendChild(cond);
 
   const conditionIcon = document.createElement("img");
+  conditionIcon.classList.add("weather-condition-icon");
   conditionIcon.src = condition.conditionIcon;
-  weatherCondition.appendChild(conditionIcon);
+  conditionGroup.appendChild(conditionIcon);
+
+  weatherCondition.appendChild(conditionGroup);
 
   return weatherCondition;
 };

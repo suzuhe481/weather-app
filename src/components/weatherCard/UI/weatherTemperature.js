@@ -2,19 +2,19 @@ const futureForecast = (temp) => {
   const weatherTemp = document.createElement("div");
 
   const maxtempF = document.createElement("div");
-  maxtempF.innerHTML = temp.maxtempF;
+  maxtempF.innerHTML = "Max " + temp.maxtempF + " °F";
   weatherTemp.appendChild(maxtempF);
 
   const mintempF = document.createElement("div");
-  mintempF.innerHTML = temp.mintempF;
+  mintempF.innerHTML = "Min " + temp.mintempF + " °F";
   weatherTemp.appendChild(mintempF);
 
   const maxtempC = document.createElement("div");
-  maxtempC.innerHTML = temp.maxtempC;
+  maxtempC.innerHTML = "Max " + temp.maxtempC + " °C";
   weatherTemp.appendChild(maxtempC);
 
   const mintempC = document.createElement("div");
-  mintempC.innerHTML = temp.mintempC;
+  mintempC.innerHTML = "Min " + temp.mintempC + " °C";
   weatherTemp.appendChild(mintempC);
 
   return weatherTemp;
@@ -23,21 +23,35 @@ const futureForecast = (temp) => {
 const currForecast = (temp) => {
   const weatherTemp = document.createElement("div");
 
+  // Temperature Group - Fahrenheit
+  const tempGroupF = document.createElement("div");
+  tempGroupF.classList.add("temp-fahrenheit");
+
   const tempF = document.createElement("div");
-  tempF.innerHTML = temp.tempF;
-  weatherTemp.appendChild(tempF);
+  tempF.innerHTML = temp.tempF + " °F";
 
   const feelsLikeTempF = document.createElement("div");
-  feelsLikeTempF.innerHTML = temp.feelsLikeTempF;
-  weatherTemp.appendChild(feelsLikeTempF);
+  feelsLikeTempF.innerHTML = "Feels like " + temp.feelsLikeTempF + " °F";
+
+  tempGroupF.appendChild(tempF);
+  tempGroupF.appendChild(feelsLikeTempF);
+  weatherTemp.appendChild(tempGroupF);
+
+  // Temperature Group - Celsius
+  const tempGroupC = document.createElement("div");
+  tempGroupC.classList.add("temp-celsius");
 
   const tempC = document.createElement("div");
-  tempC.innerHTML = temp.tempC;
-  weatherTemp.appendChild(tempC);
+  tempC.innerHTML = temp.tempC + " °C";
 
   const feelsLikeTempC = document.createElement("div");
-  feelsLikeTempC.innerHTML = temp.feelsLikeTempC;
-  weatherTemp.appendChild(feelsLikeTempC);
+  feelsLikeTempC.innerHTML = "Feels like " + temp.feelsLikeTempC + " °C";
+
+  tempGroupC.appendChild(tempC);
+  tempGroupC.appendChild(feelsLikeTempC);
+  weatherTemp.appendChild(tempGroupC);
+
+  weatherTemp.appendChild(tempGroupC);
 
   return weatherTemp;
 };
