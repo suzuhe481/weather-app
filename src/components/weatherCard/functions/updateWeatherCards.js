@@ -8,6 +8,7 @@ const updateWeatherCards = (event) => {
 
   var card;
 
+  // Gets and clears multiple containers.
   const weatherCardsContainer = document.getElementById(
     "weather-cards-container"
   );
@@ -25,11 +26,12 @@ const updateWeatherCards = (event) => {
 
   getWeather()
     .then((weatherData) => {
-      console.log(weatherData);
       // Updates the weather location
       weatherLocationContainer.appendChild(
         weatherLocation(weatherData.location)
       );
+
+      weatherCardsContainer.classList.add("current-forecast");
 
       // Adds the slider button.
       forecastTypeSliderContainer.appendChild(forecastSliderButton());
