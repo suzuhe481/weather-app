@@ -32,6 +32,14 @@ const weatherCard = (weatherData, i) => {
   weatherDateContainer.innerHTML = readyDate;
   card.appendChild(weatherDateContainer);
 
+  // Condition
+  const weatherConditionContainer = document.createElement("div");
+  weatherConditionContainer.id = "weather-condition-container";
+  weatherConditionContainer.appendChild(
+    weatherCondition(weatherData.forecast[i].condition, i)
+  );
+  card.appendChild(weatherConditionContainer);
+
   // Temperature
   const weatherTempContainer = document.createElement("div");
   weatherTempContainer.id = "weather-temp-container";
@@ -47,14 +55,6 @@ const weatherCard = (weatherData, i) => {
     weatherWind(weatherData.forecast[i].wind, i)
   );
   card.appendChild(weatherWindContainer);
-
-  // Condition
-  const weatherConditionContainer = document.createElement("div");
-  weatherConditionContainer.id = "weather-condition-container";
-  weatherConditionContainer.appendChild(
-    weatherCondition(weatherData.forecast[i].condition, i)
-  );
-  card.appendChild(weatherConditionContainer);
 
   return card;
 };
