@@ -1,21 +1,32 @@
 const futureForecast = (temp) => {
   const weatherTemp = document.createElement("div");
 
+  // Temperature Group - Fahrenheit
+  const tempGroupF = document.createElement("div");
+  tempGroupF.classList.add("temp-fahrenheit", "active");
+
   const maxtempF = document.createElement("div");
   maxtempF.innerHTML = "Max " + temp.maxtempF + " °F";
-  weatherTemp.appendChild(maxtempF);
+  tempGroupF.appendChild(maxtempF);
 
   const mintempF = document.createElement("div");
   mintempF.innerHTML = "Min " + temp.mintempF + " °F";
-  weatherTemp.appendChild(mintempF);
+  tempGroupF.appendChild(mintempF);
+
+  // Temperature Group - Celsius
+  const tempGroupC = document.createElement("div");
+  tempGroupC.classList.add("temp-celsius", "hidden");
 
   const maxtempC = document.createElement("div");
   maxtempC.innerHTML = "Max " + temp.maxtempC + " °C";
-  weatherTemp.appendChild(maxtempC);
+  tempGroupC.appendChild(maxtempC);
 
   const mintempC = document.createElement("div");
   mintempC.innerHTML = "Min " + temp.mintempC + " °C";
-  weatherTemp.appendChild(mintempC);
+  tempGroupC.appendChild(mintempC);
+
+  weatherTemp.appendChild(tempGroupF);
+  weatherTemp.appendChild(tempGroupC);
 
   return weatherTemp;
 };
@@ -25,7 +36,7 @@ const currForecast = (temp) => {
 
   // Temperature Group - Fahrenheit
   const tempGroupF = document.createElement("div");
-  tempGroupF.classList.add("temp-fahrenheit");
+  tempGroupF.classList.add("temp-fahrenheit", "active");
 
   const tempF = document.createElement("div");
   tempF.innerHTML = temp.tempF + " °F";
@@ -39,7 +50,7 @@ const currForecast = (temp) => {
 
   // Temperature Group - Celsius
   const tempGroupC = document.createElement("div");
-  tempGroupC.classList.add("temp-celsius");
+  tempGroupC.classList.add("temp-celsius", "hidden");
 
   const tempC = document.createElement("div");
   tempC.innerHTML = temp.tempC + " °C";
