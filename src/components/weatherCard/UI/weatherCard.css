@@ -44,4 +44,54 @@
 /* On 3 day forecast toggle, displays all weather cards */
 #weather-cards-container.three-day-forecast > div {
   display: block;
+  opacity: 0;
+}
+
+/* Animates current forecast weather cards. Keeps final value of animatino */
+#weather-cards-container.current-forecast > .weather-card {
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Animates 3 day forecast weather cards. Keeps final value of animatino */
+#weather-cards-container.three-day-forecast > .weather-card {
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Simple animation to fade in */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
