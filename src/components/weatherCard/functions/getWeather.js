@@ -69,7 +69,7 @@ async function getWeather() {
 
   const numOfDays = 3;
   var url =
-    "http://api.weatherapi.com/v1/forecast.json?key=7e3d3ae60f4f42fcb51173916230907";
+    "https://api.weatherapi.com/v1/forecast.json?key=7e3d3ae60f4f42fcb51173916230907";
 
   const fetchUrl =
     url + "&q=" + userLocation + "&days=" + numOfDays + "&aqi=yes&alerts=no";
