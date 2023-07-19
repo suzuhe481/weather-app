@@ -7,6 +7,10 @@
   --slider-length: 120px;
 }
 
+#forecast-slider-container {
+  margin: 10px;
+}
+
 /* Creates the rounded slider container */
 .toggle {
   position: relative;
