@@ -6,7 +6,7 @@ import forecastSliderButton from "../../forecastSliderButton/UI/forecastSliderBu
 const updateWeatherCards = (event) => {
   event.preventDefault();
 
-  var card;
+  // var card;
 
   // Gets and clears multiple containers.
   const weatherCardsContainer = document.getElementById(
@@ -39,7 +39,7 @@ const updateWeatherCards = (event) => {
       // Creates cards for each forecast day.
       // Index is passed to know which is the current day, at i == 0.
       for (var i = 0; i < weatherData.forecast.length; i++) {
-        card = weatherCard(weatherData, i);
+        const card = weatherCard(weatherData, i);
         weatherCardsContainer.appendChild(card);
       }
     })
@@ -48,9 +48,9 @@ const updateWeatherCards = (event) => {
 
       const errorMessage = document.createElement("div");
       errorMessage.innerHTML = "Weather data could not be displayed.";
-      card = errorMessage;
+      const errorCard = errorMessage;
 
-      weatherCardsContainer.appendChild(card);
+      weatherCardsContainer.appendChild(errorCard);
     });
 };
 
