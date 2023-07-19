@@ -3,7 +3,7 @@ const futureForecast = (wind) => {
 
   // Max wind - mph
   const windGroupMph = document.createElement("div");
-  windGroupMph.classList.add("wind-mph");
+  windGroupMph.classList.add("wind-mph", "active");
 
   const maxWindMph = document.createElement("div");
   maxWindMph.innerHTML = "Max wind: " + wind.maxWindMph + " mph";
@@ -13,7 +13,7 @@ const futureForecast = (wind) => {
 
   // Max wind - kph
   const windGroupKph = document.createElement("div");
-  windGroupKph.classList.add("wind-mph");
+  windGroupKph.classList.add("wind-mph", "hidden");
 
   const maxWindKph = document.createElement("div");
   maxWindKph.innerHTML = "Max wind: " + wind.maxWindKph + " kph";
@@ -34,7 +34,7 @@ const currForecast = (wind) => {
 
   // Wind - mph
   const windGroupMph = document.createElement("div");
-  windGroupMph.classList.add("wind-mph");
+  windGroupMph.classList.add("wind-mph", "active");
 
   const windMph = document.createElement("div");
   windMph.innerHTML = "Wind: " + wind.windMph + " mph";
@@ -44,7 +44,7 @@ const currForecast = (wind) => {
 
   // Wind - kph
   const windGroupKph = document.createElement("div");
-  windGroupKph.classList.add("wind-kph");
+  windGroupKph.classList.add("wind-kph", "hidden");
 
   const windKph = document.createElement("div");
   windKph.innerHTML = "Wind: " + wind.windKph + " kph";
