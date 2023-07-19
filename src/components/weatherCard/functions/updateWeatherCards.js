@@ -2,6 +2,7 @@ import weatherCard from "../UI/weatherCard";
 import getWeather from "./getWeather";
 import weatherLocation from "../UI/weatherLocation";
 import forecastSliderButton from "../../forecastSliderButton/UI/forecastSliderButton";
+import tempToggleButton from "../../tempToggleButton/UI/tempToggleButton";
 
 const updateWeatherCards = (event) => {
   event.preventDefault();
@@ -30,6 +31,9 @@ const updateWeatherCards = (event) => {
       weatherLocationContainer.appendChild(
         weatherLocation(weatherData.location)
       );
+
+      // Adds the temperature type toggle button.
+      weatherLocationContainer.appendChild(tempToggleButton());
 
       weatherCardsContainer.classList.add("current-forecast");
 
