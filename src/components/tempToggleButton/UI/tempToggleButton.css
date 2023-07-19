@@ -3,7 +3,7 @@
   display: block;
 }
 
-/* Hiddens temperatures */
+/* Hides temperatures */
 .weather-temp-container .hidden {
   display: none;
 }
@@ -12,6 +12,9 @@
 #temp-toggle {
   border: none;
   border-radius: 100px;
+
   font-size: 12;
+
   padding: 5px 10px;
+  margin: 5px 5px;
 }
