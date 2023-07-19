@@ -16,6 +16,22 @@ const weatherCard = (weatherData, i) => {
     card.classList.add("weather-card", "future");
   }
 
+  // Date container
+  const firstDateData = weatherData.forecast[0].date;
+  const dateObject = new Date(firstDateData);
+  dateObject.setDate(dateObject.getDate() + i); // Adds days based on index.
+
+  // Formats date object to a string of MonthName DayNum, Year
+  const month = dateObject.toLocaleString("default", { month: "long" });
+  const day = dateObject.getUTCDate();
+  const year = dateObject.getUTCFullYear();
+  const readyDate = `${month} ${day}, ${year}`;
+
+  const weatherDateContainer = document.createElement("div");
+  weatherDateContainer.id = "weather-date-container";
+  weatherDateContainer.innerHTML = readyDate;
+  card.appendChild(weatherDateContainer);
+
   // Temperature
   const weatherTempContainer = document.createElement("div");
   weatherTempContainer.id = "weather-temp-container";
