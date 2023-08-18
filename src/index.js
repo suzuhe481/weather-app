@@ -1,8 +1,11 @@
 import weatherForm from "./components/weatherForm/UI/weatherForm";
 import forecastSliderButton from "./components/forecastSliderButton/UI/forecastSliderButton";
+import appTitle from "./components/appTitle/appTitle";
 
 import "./reset.css";
 import "./style.css";
+
+document.body.appendChild(appTitle());
 
 const weatherFormContainer = document.createElement("div");
 weatherFormContainer.id = "weather-form-container";
