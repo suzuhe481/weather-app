@@ -1,9 +1,0 @@
-/* Background color for the body */
-body {
-  background-color: #7498dd;
-}
-
-/* Centers the toggle button on screen */
-#forecast-slider-container {
-  text-align: center;
-}
