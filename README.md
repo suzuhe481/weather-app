@@ -2,7 +2,7 @@
 
 A simple weather app using the prompt on The Odin Project's [Weather App](https://www.theodinproject.com/lessons/node-path-javascript-weather-app).
 
-Fetches weather data from [Weather API](weatherapi.com) and displays either the current forecast or a 3 day forecast.
+Fetches weather data from [Weather API](https://www.weatherapi.com) and displays either the current forecast or a 3 day forecast.
 
 This project uses HTML, CSS, and JavaScript, along with webpack.
 
